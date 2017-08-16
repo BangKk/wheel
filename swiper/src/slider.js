@@ -24,14 +24,16 @@ class Slider {
     this.setConfig()
     this.render()
     this.bindEvent()
-
+    this.loop()
   }
+
   setConfig() {
     this.ul = this.slider.children[0]
     this.li = this.ul.children
     this.total = this.li.length
     this.index = 0
   }
+
   render() {
     const slider = this.slider;
     const width = this.li[0].clientWidth
@@ -54,31 +56,44 @@ class Slider {
 
     this.renderNav()
   }
+
   renderNav() {
     const nav = $.creatE('div')
-    nav.classList.add('nav');
+    nav.classList.add('nav')
     for (let i = 0; i < this.total; i++) {
       let span = $.creatE('span')
-      span.dataset.index = i;
+      span.dataset.index = i
       nav.appendChild(span)
     }
-    this.nav = nav;
+    this.nav = nav
     this.slider.appendChild(nav)
     this.setActiveNav(this.index)
   }
+
   bindEvent() {
-    this.prevE.addEventListener('click',(e) => {
+    this.prevE.addEventListener('click', (e) => {
       this.goPrev()
     }, false)
-    this.nextE.addEventListener('click',(e) => {
+
+    this.nextE.addEventListener('click', (e) => {
       this.goNext()
     }, false)
-    this.nav.addEventListener('click',(e) => {
+
+    this.nav.addEventListener('click', (e) => {
       const index = e.target.dataset.index;
       if (!index) return
-      this.go(index);
+      this.go(index)
+    }, false)
+
+    this.slider.addEventListener('mouseover', (e) => {
+      this.timer && clearInterval(this.timer)
+    }, false)
+
+    this.slider.addEventListener('mouseleave', (e) => {
+      this.loop()
     }, false)
   }
+
   go(index) {
     if (index > this.total - 1) {
       index = 0
@@ -98,12 +113,20 @@ class Slider {
   goNext() {
     this.go(++this.index)
   }
+
   setActiveNav(index) {
     const spans = Array.prototype.slice.call(this.nav.children)
     spans.map(span => {
       span.classList.remove('active')
     })
     spans[index].classList.add('active')
+  }
+
+  loop() {
+    const time = 5000
+    this.timer = setInterval(() => {
+      this.goNext()
+    } , time)
   }
 }
 

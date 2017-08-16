@@ -53,8 +53,9 @@
   background-position: center;
 }
 .slider .nav {
-  position: relative;
-  top: -100px;
+  position: absolute;
+  width: 100%;
+  bottom: 100px;
   text-align: center;
 }
 .slider .nav > span {
