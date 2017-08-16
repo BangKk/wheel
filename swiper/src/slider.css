@@ -1,0 +1,74 @@
+.slider {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+}
+.slider > ul {
+  position: relative;
+  left: 0;
+  -webkit-transition: 0.5s left;
+  -moz-transition: 0.5s left;
+  -ms-transition: 0.5s left;
+  -o-transition: 0.5s left;
+
+  list-style: none;
+  margin: 0; padding: 0;
+}
+.slider > ul::after {
+  content: ' ';
+  clear: both;
+  overflow: hidden;
+  display: block;
+  visibility: hidden;
+  height: 0;
+}
+.slider > ul > li {
+  float: left;
+}
+.slider .prevnext {
+  position: absolute;
+  top: 0;
+  width: 50px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.slider .prevnext:hover {
+  cursor: pointer;
+  color: #fff;
+}
+
+.slider .prev {
+  background: url('../assets/back.png') no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.slider .next {
+  right: 0;
+  background: url('../assets/next.png') no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.slider .nav {
+  position: relative;
+  top: -100px;
+  text-align: center;
+}
+.slider .nav > span {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  margin: 0 5px;
+  background-color: rgba(0,0,0,.4);
+  border: 1px solid #fff;
+}
+.slider .nav > span.active {
+  background-color: #fff;
+}
+.slider .nav > span:hover {
+  cursor: pointer;
+}

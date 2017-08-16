@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>imageUploader</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./index.css">
+    <script src="./index.js"></script>
+  </head>
+  <body>
+    <input type="file" id="imgContainer" multiple/>
+    <div id="box">
+      <p>点击或将图片拖到此处</p>
+    </div>
+    <button id="imgUpload">上传图片</button>
+    <p>图片预览</p>
+    <div class="imgWrapPreview">
+
+    </div>
+    <p>已上传的图片</p>
+    <div class="imgWrap">
+
+    </div>
+    <script>
+      new imageUploader({
+        url: 'imageUploader',
+        element: '#imgContainer',
+        uploadBtn: '#imgUpload',
+        type: '',
+        success: function(data){
+          for(var i = 0; i< data.url.length; i++){
+            var img = document.createElement('img');
+            img.src = data.url[i];
+            document.querySelector('.imgWrap').appendChild(img);
+          }
+        }
+      })
+    </script>
+  </body>
+</html>

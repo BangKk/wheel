@@ -1,0 +1,44 @@
+.imgWrap img{
+  width: 100px;
+  height: 100px;
+  vertical-align: middle;
+  margin: 0 20px;
+}
+.imgWrapPreview img{
+  width: 100px;
+  height: 100px;
+  vertical-align: middle;
+  margin: 10px 20px;
+}
+#box {
+  width: 300px;
+  height: 100px;
+  border: 2px dashed #333;
+  border-radius: 5px;
+  margin: 20px 0;
+}
+#box:hover {
+  cursor: pointer;
+}
+#box > p {
+  text-align: center;
+}
+#box.dragover {
+  border: 2px dashed #999;
+}
+.imgItem {
+  position: relative;
+  display: inline-block;
+}
+.delImg {
+  color: #eee;
+  text-align: center;
+  position: absolute;
+  right: 10px;
+  top: 0px;
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  background-color: #999;
+  cursor: pointer;
+}
