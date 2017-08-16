@@ -90,7 +90,6 @@ class Slider {
     }, false)
 
     this.slider.addEventListener('mouseleave', (e) => {
-      this.goNext()
       this.loop()
     }, false)
   }
