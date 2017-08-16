@@ -5,4 +5,4 @@ front end wheels
 npm install
 
 # start
-npm start
+npm run start
